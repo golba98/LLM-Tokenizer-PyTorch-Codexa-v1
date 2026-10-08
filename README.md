@@ -1,0 +1,28 @@
+# LLM-Tokenizer
+
+Byte-level BPE and shared conversation serialization.
+
+Owns the BPE implementation wrapper and shared role/END protocol. train_bpe accepts text iterables; file-based helpers preserve the old API. Reserved IDs remain 0–7. It does not clean corpora or import Data. The production tokenizer remains outside this repository.
+
+## Development
+
+In the sibling workspace, use `../LLM-From-Scratch/run.py --repo LLM-Tokenizer test`.
+This selects the existing environment and sibling package sources without installing dependencies.
+For a separately installed checkout, run `python -m pytest` after provisioning the documented dependencies and exact sibling version 0.1.0. These packages are local and not published to PyPI.
+
+## Entry points
+
+- `python -m llm_tokenizer.cli.train_tokenizer --help`
+- `python -m llm_tokenizer.cli.inspect_tokenizer --help`
+
+## Integration and assets
+
+`../LLM-From-Scratch/compatibility.json` records the complete tested version set.
+Checkpoint weights, tokenizers, datasets and generated logs are referenced by path; none are distributed in this package. Preserve tokenizer fingerprints and architecture lineage. Source provenance is in PROVENANCE.md.
+
+## Validation and limitations
+
+See the central VALIDATION.md for commands, results and unverified large-model checks.
+The original project is preserved unchanged. No model promotion, training pipeline or remote publishing occurs as part of extraction.
+
+# LLM-Tokenizer-PyTorch-Codexa-v1
